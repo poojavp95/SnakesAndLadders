@@ -21,6 +21,11 @@ public class Board {
     }
 
     public void addSnake(Snake snake){
+        for (Snake s: snakes){
+            if(s.getStartPosition().equals(snake.getStartPosition())){
+                throw new IllegalArgumentException("Cannot add two snakes with same start position");
+            }
+        }
         snakes.add(snake);
     }
 }

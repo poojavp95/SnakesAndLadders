@@ -12,5 +12,11 @@ public class Snake {
         this.endPosition = endPosition;
     }
 
+    public Integer getStartPosition() {
+        return startPosition;
+    }
 
+    public Integer getEndPosition() {
+        return endPosition;
+    }
 }
