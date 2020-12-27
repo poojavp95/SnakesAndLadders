@@ -50,4 +50,15 @@ class SnakesAndLaddersGameTest {
 
         assertEquals(4, snakesAndLaddersGame.getPlayerPosition(player));
     }
+
+    @Test
+    void shouldNotSetPlayerPositionIfItGoesOutsideBoard() {
+        snakesAndLaddersGame.setPlayerPosition(player, 99);
+        when(dice.getMove()).thenReturn(4);
+
+        snakesAndLaddersGame.playTurn(player);
+
+        assertEquals(99, snakesAndLaddersGame.getPlayerPosition(player));
+    }
+
 }

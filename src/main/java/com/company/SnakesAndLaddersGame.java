@@ -29,6 +29,12 @@ public class SnakesAndLaddersGame {
     public void playTurn(Player player) {
         Integer diceMove = dice.getMove();
         Integer oldPosition = getPlayerPosition(player);
-        setPlayerPosition(player, oldPosition + diceMove);
+        Integer newPosition = oldPosition + diceMove;
+        if(newPosition <= board.getSize()){
+            setPlayerPosition(player, newPosition);
+            System.out.println("Player new position " + newPosition);
+        }else {
+            System.out.println("Cannot make the move");
+        }
     }
 }

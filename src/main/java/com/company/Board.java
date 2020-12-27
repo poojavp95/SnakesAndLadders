@@ -6,4 +6,8 @@ public class Board {
     public Board(Integer size) {
         this.size = size;
     }
+
+    public Integer getSize() {
+        return size;
+    }
 }
