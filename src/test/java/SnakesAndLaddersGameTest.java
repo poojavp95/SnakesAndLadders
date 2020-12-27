@@ -45,6 +45,8 @@ class SnakesAndLaddersGameTest {
     @Test
     void shouldSetPlayerPositionByIncreasingPositionToNumberOnDice() {
         when(dice.getMove()).thenReturn(4);
+        when(board.getSize()).thenReturn(100);
+        when(board.getPosition(4)).thenReturn(4);
 
         snakesAndLaddersGame.playTurn(player);
 
@@ -55,6 +57,8 @@ class SnakesAndLaddersGameTest {
     void shouldNotSetPlayerPositionIfItGoesOutsideBoard() {
         snakesAndLaddersGame.setPlayerPosition(player, 99);
         when(dice.getMove()).thenReturn(4);
+        when(board.getPosition(103)).thenReturn(103);
+        when(board.getSize()).thenReturn(100);
 
         snakesAndLaddersGame.playTurn(player);
 

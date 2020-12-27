@@ -28,4 +28,13 @@ public class Board {
         }
         snakes.add(snake);
     }
+
+    public Integer getPosition(Integer currPosition) {
+        for (Snake snake:snakes) {
+            if(snake.getStartPosition().equals(currPosition)){
+                return snake.getEndPosition();
+            }
+        }
+        return currPosition;
+    }
 }

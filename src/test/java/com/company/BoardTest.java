@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsCollectionContaining.hasItem;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class BoardTest {
@@ -26,5 +27,22 @@ class BoardTest {
 
         board.addSnake(someSnake);
         assertThrows(IllegalArgumentException.class,() -> board.addSnake(anotherSnakeWithSameStart));
+    }
+
+    @Test
+    void shouldReturnPositionOfItemGivenItsCurrentPosition() {
+        Board board = new Board(100);
+
+        Integer boardPosition = board.getPosition(10);
+        assertEquals(10, boardPosition);
+    }
+
+    @Test
+    void shouldReturnEndOfSnakeIfCurrentPositionIsStartOfSnake() {
+        Board board = new Board(100);
+        board.addSnake(new Snake(14, 7));
+
+        Integer boardPosition = board.getPosition(14);
+        assertEquals(7, boardPosition);
     }
 }
