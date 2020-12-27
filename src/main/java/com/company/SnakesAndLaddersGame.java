@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.dice.Dice;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
