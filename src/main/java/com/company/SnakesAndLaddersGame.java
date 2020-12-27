@@ -14,7 +14,7 @@ public class SnakesAndLaddersGame {
         this.board = board;
         this.dice = dice;
         playerPosition = new HashMap<>();
-        for (Player player: players) {
+        for (Player player : players) {
             playerPosition.put(player, 0);
         }
     }
@@ -24,18 +24,24 @@ public class SnakesAndLaddersGame {
     }
 
     public void setPlayerPosition(Player player, Integer position) {
-         playerPosition.put(player, position);
+        playerPosition.put(player, position);
     }
 
     public void playTurn(Player player) {
-        Integer diceMove = dice.getMove();
         Integer oldPosition = getPlayerPosition(player);
+        System.out.println("Player old Position " + oldPosition);
+
+        Integer diceMove = dice.getMove();
+        System.out.println("Number on Dice " + diceMove);
+
         Integer newPosition = board.getPosition(oldPosition + diceMove);
-        if(newPosition <= board.getSize()){
+
+        if (newPosition <= board.getSize()) {
             setPlayerPosition(player, newPosition);
             System.out.println("Player new position " + newPosition);
-        }else {
+        } else {
             System.out.println("Cannot make the move");
         }
+        System.out.println("**************");
     }
 }
