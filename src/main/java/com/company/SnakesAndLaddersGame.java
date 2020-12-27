@@ -22,4 +22,13 @@ public class SnakesAndLaddersGame {
         return playerPosition.get(player);
     }
 
+    public void setPlayerPosition(Player player, Integer position) {
+         playerPosition.put(player, position);
+    }
+
+    public void playTurn(Player player) {
+        Integer diceMove = dice.getMove();
+        Integer oldPosition = getPlayerPosition(player);
+        setPlayerPosition(player, oldPosition + diceMove);
+    }
 }

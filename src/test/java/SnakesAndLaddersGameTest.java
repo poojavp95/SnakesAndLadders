@@ -10,11 +10,14 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static java.util.Collections.singletonList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
 
+@ExtendWith(MockitoExtension.class)
 class SnakesAndLaddersGameTest {
     @Mock
     private Board board;
@@ -39,5 +42,12 @@ class SnakesAndLaddersGameTest {
         assertEquals(0, playerPosition);
     }
 
+    @Test
+    void shouldSetPlayerPositionByIncreasingPositionToNumberOnDice() {
+        when(dice.getMove()).thenReturn(4);
 
+        snakesAndLaddersGame.playTurn(player);
+
+        assertEquals(4, snakesAndLaddersGame.getPlayerPosition(player));
+    }
 }
